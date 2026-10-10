@@ -326,3 +326,35 @@ p { margin: 0 0 1em; }
   .toolbox { grid-template-columns: repeat(2, 1fr); }
   body { font-size: 15.5px; }
 }
+
+/* ==========================================================================
+   Stable Image Pop-Out Zoom Effect
+   ========================================================================== */
+.zoom-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  z-index: 1;
+}
+
+.zoom-wrap img,
+img.zoomable {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  transform-origin: center center;
+}
+
+.zoom-wrap:hover {
+  z-index: 100; /* Brings the active container above surrounding elements */
+}
+
+.zoom-wrap:hover img,
+img.zoomable:hover {
+  transform: scale(2);
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  cursor: zoom-out;
+}
